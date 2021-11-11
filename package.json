@@ -17,7 +17,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prewatch": "npm run build",
+    "watch": "nodemon server.js",
+    "dev": "react-scripts build && nodemon server.js"
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +59,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-salt": "^1.1.0"
+    "eslint-config-salt": "^1.1.0",
+    "nodemon": "^2.0.15"
   }
 }

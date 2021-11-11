@@ -1,6 +1,18 @@
 import React from 'react';
+import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+const App = () => {};
+
+const initialState = {
+  budgetLimit: '1000',
+  receiptAmount: '50',
+  receiptDesc: 'gadget',
+};
+const [ state, setState ] = useState(initialState);
+
+const handleSubmit = () => {};
 
 function App() {
   return (
