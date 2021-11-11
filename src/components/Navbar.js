@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Navbar = () => {
+const Navbar = () => (
   <div className="navbar">
     <a className="navbar--item" href="/">Home</a>
     <a className="navbar--item" href="/tips">Budget tips</a>
     <a className="navbar--item" href="/about">About</a>
-  </div>;
-};
+  </div>
+);
 
 export default Navbar;
