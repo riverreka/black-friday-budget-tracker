@@ -1,8 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
+/* --- CSS RESET --- */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,30 +43,140 @@ table {
 	border-spacing: 0;
 }
 
-/* end of css reset */
+/* --- END CSS RESET --- */
 
 * {
   box-sizing: border-box;
 }
 
-.navbar {}
-.navbar--item {}
+body {
+  height: 100%;
+  background: #D3212D;
+  background: -moz-linear-gradient(45deg, #D3212D 0%, #808080 72%, #000000 100%);
+  background: -webkit-linear-gradient(45deg, #D3212D 0%, #808080 72%, #000000 100%);
+  background: linear-gradient(45deg, #D3212D 0%, #808080 72%, #000000 100%);
+} 
 
-.form{}
-.form__limit--label {}
-.form__limit--input {}
-.form__receipt--label {}
-.form__receipt--input {}
-.form__receipt--desc {}
-.form__button {}
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
 
-.container__expense-item {}
+.navbar--item {
+  float: left;
+  padding: 12px;
+  color: antiquewhite;
+  text-decoration: none;
+  font-size: 17px;
+  width: 31%;
+  text-align: center;
+}
 
-.expense {}
-.expense__desc {}
-.expense__amount {}
-.expense__remove-button {}
+.nav-item:hover {
+  background-color: #000;
+}
 
-.App {}
-.App-header {}
-.App-logo {}
+.nav-item.active {
+  background-color: #04AA6D;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 2em;
+  width: 100%;
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  color: antiquewhite;
+  text-shadow: 10px 10px 30px #D3212D;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+}
+
+.form__limit--label, .form__receipt--label {
+  text-align: center;
+  margin: 1em;
+  padding: 0.3em;
+  color: antiquewhite;
+  font-size: 1.5em;
+}
+
+.form__receipt--input, .form__limit--input {
+  margin: 0.5em;
+  border-radius: 0.3em;
+}
+
+.form__button {
+  border-radius: 0.5em;
+  font: red;
+  margin: 1em;
+  padding: 0.3em;
+}
+
+.diagram {
+  padding: 1em;
+  max-width: 500;
+}
+
+.budget-left {
+  padding: 1em;
+  margin: 1em;
+  border-radius: 0.5em;
+  font-size: larger;
+  color: red;
+  background-color: antiquewhite;
+}
+
+.placeholder {
+  padding: 2em;
+}
+
+.rcontainer__expense-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 600px;
+}
+
+.expense {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1em;
+  width: 100%;
+  border: 1px solid darkred;
+  border-radius: 0.5em;
+  background: rgb(43, 42, 41);
+  margin: 0.3em;
+}
+
+.expense__desc {
+  color: antiquewhite;
+  margin: 0.2em;
+}
+
+.expense__amount {
+  color: antiquewhite;
+  margin: 0.3em;
+}
+
+.expense__remove-button {
+  margin: 0.2em;
+  color: red;
+  background: antiquewhite;
+}

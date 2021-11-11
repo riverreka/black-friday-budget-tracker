@@ -1,19 +1,28 @@
-import express from 'express';
-import path from 'path';
-import fs from 'fs';
-import uuid from 'uuid';
+const express = require('express');
+const uuid = require('uuid');
+const fs = require('fs');
+const path = require('path');
 
-// file path here
-
-const filePath = './data.csv';
+// set "db" file here
+const filePath = path.join(__dirname, 'data.csv');
+const port = 8000;
 
 const app = express();
 app.use(express.static(path.join(__dirname, './build')));
+// parse incoming requests body as JSON
 app.use(express.json());
 
-// dataStore array here
+const saveToFile = data => {
+  fs.writeFile(filePath, JSON.stringify(data), () => '');
+};
 
-const dataStore = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+// server side dataStore array
+let dataStore;
+try {
+  dataStore = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+} catch (e) {
+  dataStore = {};
+}
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './build/index.html'));
@@ -21,16 +30,23 @@ app.get('/', (req, res) => {
 
 app.get('/api', (req, res) => {
   const newUserId = uuid.v4();
-  res.send(newUserId);
+  res.json(newUserId);
 });
 
 app.get('/api/:userId', (req, res) => {
-  const userData = dataStore.filter(d => d.id === req.params.userID);
-  res.send(userData.data);
+  const userData = dataStore[req.params.userId];
+  if (userData) {
+    res.json(userData);
+  } else {
+    res.sendStatus(404);
+  }
 });
 
-app.post('/', (req, res) => {
-  dataStore.push({ id: req.params.userId, date: req.params.body });
+app.post('/api/:userId', req => {
+  dataStore[req.params.userId] = req.body;
+  saveToFile(dataStore);
 });
 
-app.listen(8000);
+app.listen(port, () => {
+  console.log(`Server is listenning at http://localhost:${port}`);
+});
