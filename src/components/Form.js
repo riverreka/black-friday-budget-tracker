@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Form = props => {
+const Form = ({ handleSubmit, budgetLimit }) => {
   const initialState = {
     budgetLimit: '',
     receiptAmount: '',
@@ -19,13 +19,22 @@ const Form = props => {
 
   const submit = e => {
     e.preventDefault();
-    props.handleSubmit(input);
+    handleSubmit(input);
     setInput({
       ...input,
       receiptAmount: '',
       receiptDesc: '',
     });
   };
+
+  useEffect(() => {
+    if (budgetLimit !== input.budgetLimit) {
+      setInput({
+        ...input,
+        budgetLimit,
+      });
+    }
+  }, [budgetLimit]);
 
   return (
     <form className="form">

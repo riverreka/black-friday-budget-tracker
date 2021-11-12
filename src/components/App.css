@@ -49,6 +49,15 @@ table {
   box-sizing: border-box;
 }
 
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   height: 100%;
   background: #D3212D;
@@ -82,6 +91,7 @@ body {
 }
 
 .App {
+  flex-grow:1;
   display: flex;
   flex-direction: column;
   align-items: center;
