@@ -115,12 +115,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em;
+  padding: 1em 2em;
 }
 
 .form__limit--label, .form__receipt--label {
   text-align: center;
-  margin: 1em;
+  margin: 0.5em 1em;
   padding: 0.3em;
   color: antiquewhite;
   font-size: 1.5em;
@@ -134,7 +134,7 @@ body {
 .form__button {
   border-radius: 0.5em;
   font: red;
-  margin: 1em;
+  margin: 0.7em;
   padding: 0.3em;
 }
 
@@ -145,7 +145,7 @@ body {
 
 .budget-left {
   padding: 1em;
-  margin: 1em;
+  margin: 0.5em 1em;
   border-radius: 0.5em;
   font-size: larger;
   color: red;
